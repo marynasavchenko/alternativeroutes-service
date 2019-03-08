@@ -1,10 +1,20 @@
 package com.onlinestore.alternativeroutes.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "routerecords")
 public class RouteRecord {
 
+	@Column(name = "service_name", nullable = false)
 	String serviceName;
+	@Column(name = "active", nullable = false)
 	String active;
+	@Column(name = "endpoint", nullable = false)
 	String endpoint;
+	@Column(name = "weight", nullable = false)
 	Integer weight;
 
 	public RouteRecord() {
