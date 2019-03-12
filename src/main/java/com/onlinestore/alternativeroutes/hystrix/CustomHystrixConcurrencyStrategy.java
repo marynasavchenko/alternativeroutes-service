@@ -36,7 +36,9 @@ public class CustomHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy
 	}
 
 	@Override
-	public <T> HystrixRequestVariable<T> getRequestVariable(HystrixRequestVariableLifecycle<T> rv) {
-		return super.getRequestVariable(rv);
+	public <T> HystrixRequestVariable<T> getRequestVariable(HystrixRequestVariableLifecycle<T> requestVariableLifecycle) {
+		if (existingConcurrencyStrategy != null)
+			return existingConcurrencyStrategy.getRequestVariable(requestVariableLifecycle);
+		return super.getRequestVariable(requestVariableLifecycle);
 	}
 }
