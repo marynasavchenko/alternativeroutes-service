@@ -19,7 +19,6 @@ public class CustomHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy
 		this.existingConcurrencyStrategy = existingConcurrencyStrategy;
 	}
 
-
 	@Override
 	public ThreadPoolExecutor getThreadPool(HystrixThreadPoolKey threadPoolKey, HystrixProperty<Integer> corePoolSize, HystrixProperty<Integer> maximumPoolSize, HystrixProperty<Integer> keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
 		return super.getThreadPool(threadPoolKey, corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
@@ -27,6 +26,7 @@ public class CustomHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy
 
 	@Override
 	public BlockingQueue<Runnable> getBlockingQueue(int maxQueueSize) {
+		if (existingConcurrencyStrategy != null) return existingConcurrencyStrategy.getBlockingQueue(maxQueueSize);
 		return super.getBlockingQueue(maxQueueSize);
 	}
 
