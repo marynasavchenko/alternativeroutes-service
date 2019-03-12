@@ -5,6 +5,7 @@ import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariable;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariableLifecycle;
 import com.netflix.hystrix.strategy.properties.HystrixProperty;
+import com.onlinestore.alternativeroutes.utils.UserContextHolder;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -39,7 +40,9 @@ public class CustomHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy
 
 	@Override
 	public <T> Callable<T> wrapCallable(Callable<T> callable) {
-		return super.wrapCallable(callable);
+		if (existingConcurrencyStrategy != null)
+			return existingConcurrencyStrategy.wrapCallable(new DelegatingUserContextCallable<T>(callable, UserContextHolder.getContext()));
+		return super.wrapCallable(new DelegatingUserContextCallable<T>(callable, UserContextHolder.getContext()));
 	}
 
 	@Override
