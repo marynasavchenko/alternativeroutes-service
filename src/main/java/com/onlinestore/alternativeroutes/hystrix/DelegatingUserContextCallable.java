@@ -25,6 +25,12 @@ public class DelegatingUserContextCallable<V> implements Callable<V> {
 
 	@Override
 	public V call() throws Exception {
-		return null;
+		UserContextHolder.setContext(originalUserContext);
+
+		try {
+			return delegatedCallable.call();
+		} finally {
+			this.originalUserContext = null;
+		}
 	}
 }
