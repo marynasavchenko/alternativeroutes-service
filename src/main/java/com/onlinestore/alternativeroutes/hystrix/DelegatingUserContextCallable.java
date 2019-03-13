@@ -6,11 +6,11 @@ import java.util.concurrent.Callable;
 
 public class DelegatingUserContextCallable<T> implements Callable<T> {
 
-	private final Callable<T> delegate;
+	private final Callable<T> delegatedCallable;
 	private UserContext originalUserContext;
 
-	public DelegatingUserContextCallable(Callable<T> delegate, UserContext userContext) {
-		this.delegate = delegate;
+	public DelegatingUserContextCallable(Callable<T> delegatedCallable, UserContext userContext) {
+		this.delegatedCallable = delegatedCallable;
 		this.originalUserContext = userContext;
 	}
 
