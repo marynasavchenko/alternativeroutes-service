@@ -1,6 +1,6 @@
 package com.onlinestore.alternativeroutes.controllers;
 
-import com.onlinestore.alternativeroutes.model.RouteRecord;
+import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import com.onlinestore.alternativeroutes.services.RouteRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

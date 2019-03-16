@@ -1,7 +1,7 @@
 package com.onlinestore.alternativeroutes.services;
 
 import com.onlinestore.alternativeroutes.exceptions.RouteRecordNotFoundException;
-import com.onlinestore.alternativeroutes.model.RouteRecord;
+import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import com.onlinestore.alternativeroutes.repositories.RouteRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

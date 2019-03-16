@@ -1,4 +1,4 @@
-package com.onlinestore.alternativeroutes.model;
+package com.onlinestore.alternativeroutes.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
