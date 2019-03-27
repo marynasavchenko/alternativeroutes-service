@@ -4,14 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "routerecords")
 public class RouteRecord {
 
 	@Column(name = "service_name", nullable = false)
 	String serviceName;
-	@Column(name = "active", nullable = false)
-	String active;
+	@Column(name = "active_status", nullable = false)
+	String activeStatus;
 	@Column(name = "endpoint", nullable = false)
 	String endpoint;
 	@Column(name = "weight", nullable = false)
@@ -24,8 +25,8 @@ public class RouteRecord {
 		return serviceName;
 	}
 
-	public String getActive() {
-		return active;
+	public String getActiveStatus() {
+		return activeStatus;
 	}
 
 	public String getEndpoint() {
@@ -40,8 +41,8 @@ public class RouteRecord {
 		this.serviceName = serviceName;
 	}
 
-	public void setActive(String active) {
-		this.active = active;
+	public void setActiveStatus(String activeStatus) {
+		this.activeStatus = activeStatus;
 	}
 
 	public void setEndpoint(String endpoint) {
@@ -56,7 +57,7 @@ public class RouteRecord {
 	public String toString() {
 		return "RouteRecord{" +
 				"serviceName='" + serviceName + '\'' +
-				", active='" + active + '\'' +
+				", activeStatus='" + activeStatus + '\'' +
 				", endpoint='" + endpoint + '\'' +
 				", weight=" + weight +
 				'}';
