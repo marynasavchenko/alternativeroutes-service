@@ -4,20 +4,36 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
+/**
+ * Route record entity class.
+ */
 @Entity
 @Table(name = "routerecords")
 public class RouteRecord {
-
+	/**
+	 * Name of the service.
+	 */
 	@Column(name = "service_name", nullable = false)
 	String serviceName;
+	/**
+	 * Active status of route record. Can be "YES" or "NO".
+	 */
 	@Column(name = "active_status", nullable = false)
 	String activeStatus;
+	/**
+	 * Endpoint of the service.
+	 */
 	@Column(name = "endpoint", nullable = false)
 	String endpoint;
+	/**
+	 * Weight of the route.
+	 */
 	@Column(name = "weight", nullable = false)
 	Integer weight;
 
+	/**
+	 * Constructs new empty {@code RouteRecord} instance.
+	 */
 	public RouteRecord() {
 	}
 
