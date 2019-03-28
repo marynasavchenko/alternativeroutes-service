@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * Spring configuration class that rebuilds the Hystrix plugin that manages all the different components
+ * running within this service.
+ */
 @Configuration
 public class ThreadLocalConfiguration {
 
@@ -20,6 +24,7 @@ public class ThreadLocalConfiguration {
 	public ThreadLocalConfiguration(HystrixConcurrencyStrategy existingConcurrencyStrategy) {
 		this.existingConcurrencyStrategy = existingConcurrencyStrategy;
 	}
+
 	@PostConstruct
 	public void init() {
 		HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance().getEventNotifier();
