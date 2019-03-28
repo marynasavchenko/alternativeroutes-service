@@ -8,6 +8,12 @@ import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
 
+/**
+ * Implementation of the {@link ClientHttpRequestInterceptor} interface.
+ * <p>
+ * Used to inject the {@code UserContext} values (like correlation ID) into any outgoing HTTP-based service requests
+ * being executed from a RestTemplate instance for establishing a linkage between service calls.
+ */
 public class UserContextInterceptor implements ClientHttpRequestInterceptor {
 
 	@Override

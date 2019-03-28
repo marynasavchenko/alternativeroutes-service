@@ -2,6 +2,9 @@ package com.onlinestore.alternativeroutes.utils;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Contextual information scrapped from incoming HTTP request.
+ */
 @Component
 public class UserContext {
 
