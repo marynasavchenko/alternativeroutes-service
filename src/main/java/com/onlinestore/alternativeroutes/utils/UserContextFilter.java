@@ -1,9 +1,12 @@
 package com.onlinestore.alternativeroutes.utils;
 
+import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+@Component
 public class UserContextFilter implements Filter {
 
 	@Override
