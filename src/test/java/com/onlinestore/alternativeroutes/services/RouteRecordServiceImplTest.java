@@ -1,6 +1,7 @@
 package com.onlinestore.alternativeroutes.services;
 
 import com.onlinestore.alternativeroutes.domain.RouteRecord;
+import com.onlinestore.alternativeroutes.exceptions.RouteRecordNotFoundException;
 import com.onlinestore.alternativeroutes.repositories.RouteRecordRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,5 +37,11 @@ public class RouteRecordServiceImplTest {
 		when(routeRecordRepository.findByServiceName(SERVICE_NAME)).thenReturn(Optional.of(routeRecord));
 		routeRecordService.getRouteRecordByServiceName(SERVICE_NAME);
 		verify(routeRecordRepository).findByServiceName(SERVICE_NAME);
+	}
+
+	@Test(expected = RouteRecordNotFoundException.class)
+	public void shouldThrowExceptionWhenEmptyOptional() throws Exception {
+		when(routeRecordRepository.findByServiceName(SERVICE_NAME)).thenReturn(Optional.empty());
+		routeRecordService.getRouteRecordByServiceName(SERVICE_NAME);
 	}
 }
