@@ -31,10 +31,10 @@ public class RouteRecordServiceImpl implements RouteRecordService {
 	 *
 	 * @param serviceName name of the service
 	 * @return route record
+	 * @throws RouteRecordNotFoundException if {@code routeRecordRepository} returns empty Optional
 	 */
 	public RouteRecord getRouteRecordByServiceName(String serviceName) {
-		RouteRecord routeRecord = routeRecordRepository.findByServiceName(serviceName);
-		if (routeRecord == null) throw new RouteRecordNotFoundException();
-		return routeRecord;
+		return routeRecordRepository.findByServiceName(serviceName)
+				.orElseThrow(() -> new RouteRecordNotFoundException());
 	}
 }
