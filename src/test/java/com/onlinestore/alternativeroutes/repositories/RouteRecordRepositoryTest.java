@@ -30,7 +30,7 @@ public class RouteRecordRepositoryTest {
 
 	@After
 	public void tearDown() throws Exception {
-
+		routeRecordRepository.deleteAll();
 	}
 
 	@Test
@@ -38,5 +38,11 @@ public class RouteRecordRepositoryTest {
 		routeRecordRepository.save(routeRecord);
 		Optional<RouteRecord> optionalRoutRecord = routeRecordRepository.findByServiceName(SERVICE_NAME);
 		assertEquals(routeRecord, optionalRoutRecord.get());
+	}
+
+	@Test
+	public void shouldReturnEmptyOptionalWhenNoRecord() throws Exception {
+		Optional<RouteRecord> optionalRoutRecord = routeRecordRepository.findByServiceName(SERVICE_NAME);
+		assertEquals(Optional.empty(), optionalRoutRecord);
 	}
 }
