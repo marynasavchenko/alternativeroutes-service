@@ -2,6 +2,7 @@ package com.onlinestore.alternativeroutes.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,6 +14,7 @@ public class RouteRecord {
 	/**
 	 * Name of the service.
 	 */
+	@Id
 	@Column(name = "service_name", nullable = false)
 	String serviceName;
 	/**
