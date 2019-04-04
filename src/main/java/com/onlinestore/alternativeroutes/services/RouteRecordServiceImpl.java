@@ -35,6 +35,6 @@ public class RouteRecordServiceImpl implements RouteRecordService {
 	 */
 	public RouteRecord getRouteRecordByServiceName(String serviceName) {
 		return routeRecordRepository.findByServiceName(serviceName)
-				.orElseThrow(() -> new RouteRecordNotFoundException());
+				.orElseThrow(() -> new RouteRecordNotFoundException(serviceName));
 	}
 }
