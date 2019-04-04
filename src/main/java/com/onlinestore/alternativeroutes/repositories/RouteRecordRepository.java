@@ -4,6 +4,8 @@ import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * Spring Data repository for {@link RouteRecord} class.
  */
@@ -13,7 +15,7 @@ public interface RouteRecordRepository extends JpaRepository<RouteRecord, String
 	 * Looks up route record of the specified service in the database.
 	 *
 	 * @param serviceName name of the service
-	 * @return route record
+	 * @return Optional of route record
 	 */
-	RouteRecord findByServiceName(String serviceName);
+	Optional<RouteRecord> findByServiceName(String serviceName);
 }
