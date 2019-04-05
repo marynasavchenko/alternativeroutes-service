@@ -1,7 +1,7 @@
 ## **Alternative routes service**
 
-Alternative routes service has a database record for the customer service that will route the requests for calls to the customer service 50%
-of the time to the existing customer service and 50% of the time to an alternative customer service.
+Alternative routes service has a database record for the customer service that will route the requests for calls to
+different versions of customer service.
 
 ## **Building**
 
