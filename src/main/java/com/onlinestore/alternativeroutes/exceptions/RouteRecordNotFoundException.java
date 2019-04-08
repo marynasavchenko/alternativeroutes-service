@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class RouteRecordNotFoundException extends RuntimeException {
 	/**
-	 * Constructs a new {@code RouteRecordNotFoundException} instance.
+	 * Constructs new {@code RouteRecordNotFoundException} instance.
 	 *
 	 * @param serviceId service id
 	 */

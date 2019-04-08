@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface RouteRecordRepository extends JpaRepository<RouteRecord, String> {
 	/**
-	 * Looks up route record of the specified service in the database.
+	 * Returns route record of the specified service from database.
 	 *
 	 * @param serviceName name of the service
 	 * @return Optional of route record

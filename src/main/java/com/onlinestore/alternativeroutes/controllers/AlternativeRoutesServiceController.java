@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/v1/route")
 public class AlternativeRoutesServiceController {
 	/**
-	 * Service that supports opertions with route records.
+	 * Service that supports operations with route records.
 	 */
 	private RouteRecordService routeRecordService;
 
 	/**
-	 * Constructs a new {@code AlternativeRoutesServiceController} instance.
+	 * Constructs new {@code AlternativeRoutesServiceController} instance.
 	 *
 	 * @param routeRecordService
 	 */
@@ -30,7 +30,7 @@ public class AlternativeRoutesServiceController {
 	}
 
 	/**
-	 * GET  /records/{serviceName} : gets route record of specified service.
+	 * GET  /records/{serviceName} : gets route record of the specified service.
 	 *
 	 * @param serviceName name of the service
 	 * @return route record

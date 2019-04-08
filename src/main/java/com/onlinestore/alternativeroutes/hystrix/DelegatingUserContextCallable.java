@@ -6,11 +6,11 @@ import com.onlinestore.alternativeroutes.utils.UserContextHolder;
 import java.util.concurrent.Callable;
 
 /**
- * Implementation of {@code Callable} interface.
+ * Implementation of the {@code Callable} interface.
  * <p>
  * Propagate thread context of the parent thread to Hystrix command.
  *
- * @param <V> the result type of method call
+ * @param <V> result type of method call
  */
 public class DelegatingUserContextCallable<V> implements Callable<V> {
 

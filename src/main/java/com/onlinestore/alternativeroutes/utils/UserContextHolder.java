@@ -3,7 +3,7 @@ package com.onlinestore.alternativeroutes.utils;
 import org.springframework.util.Assert;
 
 /**
- * Class that used to store the UserContext in a ThreadLocal class.
+ * Class that used to store UserContext in ThreadLocal class.
  */
 public class UserContextHolder {
 	private static final ThreadLocal<UserContext> threadLocalUserContext = new ThreadLocal<>();
