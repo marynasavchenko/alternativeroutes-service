@@ -13,10 +13,10 @@ public class UserContext {
 	public static final String USER_ID = "onlst-user-id";
 	public static final String CUSTOMER_ID = "onlst-customer-id";
 
-	private String correlationId = new String();
-	private String authToken = new String();
-	private String userId = new String();
-	private String customerId = new String();
+	private String correlationId = "";
+	private String authToken = "";
+	private String userId = "";
+	private String customerId = "";
 
 	public String getCorrelationId() {
 		return correlationId;
