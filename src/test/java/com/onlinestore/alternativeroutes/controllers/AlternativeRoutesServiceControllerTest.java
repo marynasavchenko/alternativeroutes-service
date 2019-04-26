@@ -1,5 +1,6 @@
 package com.onlinestore.alternativeroutes.controllers;
 
+import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import com.onlinestore.alternativeroutes.services.RouteRecordService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +10,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -31,4 +34,11 @@ public class AlternativeRoutesServiceControllerTest {
 		mockMvc.perform(get(URI)).andExpect((status().isOk()));
 		verify(routeRecordService).getRouteRecordByServiceName(SERVICE_NAME);
 	}
+
+	@Test
+	public void shouldAddRouteRecord() throws Exception {
+		mockMvc.perform(post(URI)).andExpect((status().isCreated()));
+		verify(routeRecordService).addAddRouteRecord(any(RouteRecord.class));
+	}
+
 }
