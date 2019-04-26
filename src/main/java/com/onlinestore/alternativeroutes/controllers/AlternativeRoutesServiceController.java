@@ -3,10 +3,8 @@ package com.onlinestore.alternativeroutes.controllers;
 import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import com.onlinestore.alternativeroutes.services.RouteRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Rest controller for managing route's records.
@@ -38,6 +36,12 @@ public class AlternativeRoutesServiceController {
 	@GetMapping(value = "/records/{serviceName}")
 	public RouteRecord getRouteRecord(@PathVariable("serviceName") String serviceName) {
 		return routeRecordService.getRouteRecordByServiceName(serviceName);
+	}
+
+	@PostMapping(value = "/records")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void addRouteRecord(RouteRecord routeRecord) {
+		routeRecordService.addAddRouteRecord(routeRecord);
 	}
 
 }
