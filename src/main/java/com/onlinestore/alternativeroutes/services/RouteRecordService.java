@@ -8,4 +8,5 @@ import com.onlinestore.alternativeroutes.domain.RouteRecord;
  */
 public interface RouteRecordService {
 	RouteRecord getRouteRecordByServiceName(String serviceName);
+	void addAddRouteRecord(RouteRecord routeRecord);
 }

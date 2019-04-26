@@ -37,4 +37,9 @@ public class RouteRecordServiceImpl implements RouteRecordService {
 		return routeRecordRepository.findByServiceName(serviceName)
 				.orElseThrow(() -> new RouteRecordNotFoundException(serviceName));
 	}
+
+	@Override
+	public void addAddRouteRecord(RouteRecord routeRecord) {
+		routeRecordRepository.save(routeRecord);
+	}
 }
