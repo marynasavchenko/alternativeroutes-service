@@ -15,16 +15,16 @@ public class RouteRecord {
 
 	@Id
 	@Column(name = "service_name", nullable = false)
-	String serviceName;
+	private String serviceName;
 
 	@Column(name = "active_status", nullable = false)
-	String activeStatus;
+	private String activeStatus;
 
 	@Column(name = "endpoint", nullable = false)
-	String endpoint;
+	private String endpoint;
 
 	@Column(name = "weight", nullable = false)
-	Integer weight;
+	private Integer weight;
 
 	public RouteRecord() {
 	}
