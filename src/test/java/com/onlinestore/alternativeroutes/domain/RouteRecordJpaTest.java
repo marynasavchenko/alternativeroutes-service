@@ -22,7 +22,8 @@ public class RouteRecordJpaTest {
 
 	@Test
 	public void shouldMapRouteRecordEntity() throws Exception {
-		RouteRecord routeRecord = this.entityManager.persistAndFlush(new RouteRecord(SERVICE_NAME, ACTIVE_STATUS, ENDPOINT, WEIGHT));
-		Assertions.assertThat(routeRecord.getServiceName()).isNotNull();
+		RouteRecord routeRecord = new RouteRecord(SERVICE_NAME, ACTIVE_STATUS, ENDPOINT, WEIGHT);
+		RouteRecord foundRouteRecord = this.entityManager.persistAndFlush(routeRecord);
+		Assertions.assertThat(foundRouteRecord.getServiceName()).isEqualTo(SERVICE_NAME);
 	}
 }
