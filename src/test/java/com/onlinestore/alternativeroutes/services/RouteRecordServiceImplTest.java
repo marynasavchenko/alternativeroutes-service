@@ -3,19 +3,20 @@ package com.onlinestore.alternativeroutes.services;
 import com.onlinestore.alternativeroutes.domain.RouteRecord;
 import com.onlinestore.alternativeroutes.exceptions.RouteRecordNotFoundException;
 import com.onlinestore.alternativeroutes.repositories.RouteRecordRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RouteRecordServiceImplTest {
 	private static final String SERVICE_NAME = "customerservice";
 
@@ -27,7 +28,7 @@ public class RouteRecordServiceImplTest {
 	@Spy
 	RouteRecord routeRecord;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		routeRecordService = new RouteRecordServiceImpl(routeRecordRepository);
 	}
@@ -39,9 +40,11 @@ public class RouteRecordServiceImplTest {
 		verify(routeRecordRepository).findByServiceName(SERVICE_NAME);
 	}
 
-	@Test(expected = RouteRecordNotFoundException.class)
+	@Test
 	public void shouldThrowExceptionWhenEmptyOptional() throws Exception {
 		when(routeRecordRepository.findByServiceName(SERVICE_NAME)).thenReturn(Optional.empty());
-		routeRecordService.getRouteRecordByServiceName(SERVICE_NAME);
+
+		assertThrows(RouteRecordNotFoundException.class,
+				() -> routeRecordService.getRouteRecordByServiceName(SERVICE_NAME));
 	}
 }
